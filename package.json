@@ -1,6 +1,7 @@
 {
   "name": "reaction",
   "version": "0.1.0",
+  "description": "Writing Unit and Integration test cases in create-react-app",
   "private": true,
   "dependencies": {
     "react": "^16.6.3",
@@ -21,5 +22,18 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "keywords": [
+    "react",
+    "unit",
+    "integration",
+    "test",
+    "cases"
+  ],
+  "author": "Muhammad Afzaal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afzaalb/reaction/issues"
+  },
+  "homepage": "https://github.com/afzaalb/reaction#readme"
 }
