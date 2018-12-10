@@ -4,9 +4,13 @@
   "description": "Writing Unit and Integration test cases in create-react-app",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "spectre.css": "^0.5.7"
   },
   "scripts": {
     "start": "react-scripts start",
