@@ -23,3 +23,19 @@ it("App has Circle in it", () => {
 it("App has list in it", () => {
   expect(wrapper.find(List).length).toEqual(1);
 });
+
+it("Change State for App", () => {
+  expect(wrapper.find('li').length).toEqual(1);
+  wrapper.setState({ size: 120, items: ['Usman','Rohaan'] });
+  expect(wrapper.find('li').length).toEqual(2);
+});
+
+it("Form Submit", () => {
+  const prevListLength = wrapper.find("li").length;
+  wrapper.find("input").simulate("change", { target: { value: "New-value" } });
+  // wrapper.update();
+  wrapper.find("form").simulate("submit");
+  // wrapper.update();
+  expect(wrapper.find("input").prop("value")).toEqual("");
+  expect(wrapper.find("li").length).toEqual(prevListLength + 1);
+});

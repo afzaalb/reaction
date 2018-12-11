@@ -4,19 +4,66 @@ import Circle from './Circle';
 import List from './List';
 
 class App extends Component {
+  state = {
+    items: ['Basheer'],
+    size: 80,
+    field: ''
+  }
+
+  onChangeHandler(e){
+    this.setState(
+      { 
+        field: e.target.value
+      }
+    );
+  }
+
+  onFormSubmit(e){
+    e.preventDefault();
+
+    const { items, field } = this.state;
+    this.setState(
+      { 
+        items: [...items, field],
+        field: ''
+      }
+    )
+  }
+
   render() {
-    const items = ['Basheer','Shabeer','Rasheed'];
+    const { items, size, field } = this.state;
 
     return (
-      <div className="container" style={{maxWidth:'760px'}}>
-        <h3 className="mt-2">App made with Spectre.css</h3>
+      <div className="container" style={{maxWidth:'640px'}}>
+        <h3>App made with Spectre.css</h3>
         <div className="columns">
-          <div className="column col-6 text-center">
-            <Circle width={80} height={80} />
+          <form
+            onSubmit={e => this.onFormSubmit(e)}
+            className="column col-12 d-flex mb-2"
+          >
+            <input
+              onChange={e => this.onChangeHandler(e)}
+              type="text"
+              value={field}
+              className="form-input mr-2"
+              placeholder="Enter list item"
+              required
+            />
+            <button
+              type="submit"
+              className="col-ml-auto btn"
+            >
+              Add list item
+            </button>
+          </form>
+          <div className="column col-12">
+            {items.length
+              && <ul><List items={items} /></ul>
+            }
           </div>
-          <div className="column col-6">
-            <List items={items} />
-          </div>
+        </div>
+        <div className="text-center">
+          <Circle width={size} height={size} />
         </div>
       </div>
     );

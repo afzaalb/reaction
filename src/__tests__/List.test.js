@@ -12,3 +12,10 @@ beforeEach(() => {
 it("List has item in it", () => {
   expect(wrapper.find('li').length).toEqual(1);
 });
+
+it("Change props for list", () => {
+  expect(wrapper.find('li').length).toEqual(1);
+  wrapper.setProps({ items: ['Awn','Tabish','Afzaal'] });
+  expect(wrapper.find('li').length).toEqual(3);
+  expect(wrapper.find('li').first().text()).toEqual('Awn');
+});
