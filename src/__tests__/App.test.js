@@ -30,12 +30,13 @@ it("Change State for App", () => {
   expect(wrapper.find('li').length).toEqual(2);
 });
 
-it("Form Submit", () => {
+it("Form Submit without empty field", () => {
   const prevListLength = wrapper.find("li").length;
   wrapper.find("input").simulate("change", { target: { value: "New-value" } });
-  // wrapper.update();
+  wrapper.update();
+  expect(wrapper.find("input").props().value.length).not.toEqual(0);
   wrapper.find("form").simulate("submit");
-  // wrapper.update();
+  wrapper.update();
   expect(wrapper.find("input").prop("value")).toEqual("");
   expect(wrapper.find("li").length).toEqual(prevListLength + 1);
 });
